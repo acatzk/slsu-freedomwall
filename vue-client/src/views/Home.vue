@@ -1,6 +1,11 @@
 <template>
   <div class="home">
-    <nav-bar />
+    <v-container>
+      <nav-bar />
+      <v-main>
+        
+      </v-main>
+    </v-container>
   </div>
 </template>
 
@@ -12,3 +17,10 @@
     }
   }
 </script>
+
+<style scoped lang="scss">
+  .home {
+    min-height: 1000vh;
+    background:#f0f2f5;
+  }
+</style>
