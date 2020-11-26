@@ -27,7 +27,8 @@ export default new Vuetify({
         darkblueshade: "#308DC2",
         lightgray: "#BDBDBD",
         lightpink: "#FFCFE3",
-        white: "#FFFFFF"
+        white: "#FFFFFF",
+        defaultColor: "#2d2d2d"
       }
     }
   }
