@@ -20,28 +20,33 @@
         </v-avatar>
       </v-btn>
     </template>
-    <v-list dense class="mt-2">
-      <v-list-item v-for="(opt, io) in profileOptions" 
-                   :key="io"
-                   :to="opt.to">
-        <v-hover v-slot="{ hover }">
-          <v-list-item-title class="caption">
-              <v-icon left medium>
-                {{ hover ? `${opt.icon}` : `${opt.icon}-outline` }}
-              </v-icon> {{ opt.text }}
-          </v-list-item-title>
-        </v-hover>
-      </v-list-item>
-      <v-list-item link>
-        <v-hover v-slot="{ hover }">
-          <v-list-item-title class="caption">
-              <v-icon left medium>
-                {{ hover ? 'mdi-lock' : 'mdi-lock-open-outline' }}  
-              </v-icon> Logout
-          </v-list-item-title>
-        </v-hover>
-      </v-list-item>
-    </v-list>
+    <v-card
+      width="150"
+      class="mx-auto"
+    >
+      <v-list dense>
+        <v-list-item v-for="(opt, io) in profileOptions" 
+                    :key="io"
+                    :to="opt.to">
+          <v-hover v-slot="{ hover }">
+            <v-list-item-title>
+                <v-icon left medium>
+                  {{ hover ? `${opt.icon}` : `${opt.icon}-outline` }}
+                </v-icon> {{ opt.text }}
+            </v-list-item-title>
+          </v-hover>
+        </v-list-item>
+        <v-list-item link>
+          <v-hover v-slot="{ hover }">
+            <v-list-item-title>
+                <v-icon left medium>
+                  {{ hover ? 'mdi-lock' : 'mdi-lock-open-outline' }}  
+                </v-icon> Logout
+            </v-list-item-title>
+          </v-hover>
+        </v-list-item>
+      </v-list>
+    </v-card>
   </v-menu>
 </template>
 
