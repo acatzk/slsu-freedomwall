@@ -8,41 +8,42 @@
   
     <v-list nav dense>
       <v-list-item link v-if="loggedIn">
-        <v-list-item-icon>
-          <v-img :src="getUserProfile" max-width="25" class="rounded"/>
-        </v-list-item-icon>
+        <v-list-item-avatar>
+          <v-img :src="getUserProfile" />
+        </v-list-item-avatar>
         <v-list-item-content>
-          <v-list-item-title class="text-capitalize">
+          <v-list-item-title class="text-capitalize text--primary">
             {{ userProfile.displayName }}
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-      <v-list-item link
-                   v-for="item in links"
-                  :key="item.title"
-                  :to="item.to">
-        <v-list-item-icon v-if="loggedIn && item.isProtected">
-          <v-icon>
-            {{ item.icon }}
-          </v-icon>
-        </v-list-item-icon>
-        <v-list-item-icon v-else>
-          <v-icon v-show="!item.isProtected">
-            {{ item.icon }}
-          </v-icon>
-        </v-list-item-icon>
+      <template v-for="item in links">
+        <v-list-item link
+                    :key="item.title"
+                    :to="item.to">
+          <v-list-item-icon v-if="loggedIn && item.isProtected">
+            <v-icon>
+              {{ item.icon }}
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-icon v-else>
+            <v-icon v-show="!item.isProtected">
+              {{ item.icon }}
+            </v-icon>
+          </v-list-item-icon>
 
-        <v-list-item-content v-if="loggedIn && item.isProtected">
-          <v-list-item-title>
-            {{ item.title }}
-          </v-list-item-title>
-        </v-list-item-content>
-        <v-list-item-content v-else>
-          <v-list-item-title v-show="!item.isProtected">
-            {{ item.title }}
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+          <v-list-item-content v-if="loggedIn && item.isProtected">
+            <v-list-item-title>
+              {{ item.title }}
+            </v-list-item-title>
+          </v-list-item-content>
+          <v-list-item-content v-else>
+            <v-list-item-title v-show="!item.isProtected">
+              {{ item.title }}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </template>
     </v-list>
 
   </v-navigation-drawer>
