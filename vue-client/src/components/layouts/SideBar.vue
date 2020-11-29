@@ -3,6 +3,7 @@
     v-model="show"
     app
     clipped
+    class="ma-3"
   >
   
     <v-list nav dense>
