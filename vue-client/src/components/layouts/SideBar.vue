@@ -1,37 +1,43 @@
 <template>
   <v-navigation-drawer
     v-model="show"
-    fixed
+    app
     clipped
-    color="transparent"
   >
-    
-    <v-list>
-      <v-list-item>
+  
+    <v-list nav dense>
+      <v-list-item link v-if="loggedIn">
         <v-list-item-icon>
-          <v-img src="@/assets/logo.png" max-width="25"/>
+          <v-img :src="getUserProfile" max-width="25" class="rounded"/>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title class="font-weight-medium primary--text">
-            Freedom Wall
+          <v-list-item-title class="text-capitalize">
+            {{ userProfile.displayName }}
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-    </v-list>
-
-    <!-- ACTUAL NAVIGATION LINKS -->
-    <v-list nav>
       <v-list-item link
-                    v-for="item in links"
-                    :key="item.title"
-                    :to="item.to">
-        <v-list-item-icon>
+                   v-for="item in links"
+                  :key="item.title"
+                  :to="item.to">
+        <v-list-item-icon v-if="loggedIn && item.isProtected">
           <v-icon>
-            {{ $route.path === item.to  ? item.icon : item.icon + '-outline' }}
+            {{ item.icon }}
           </v-icon>
         </v-list-item-icon>
-        <v-list-item-content>
+        <v-list-item-icon v-else>
+          <v-icon v-show="!item.isProtected">
+            {{ item.icon }}
+          </v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-content v-if="loggedIn && item.isProtected">
           <v-list-item-title>
+            {{ item.title }}
+          </v-list-item-title>
+        </v-list-item-content>
+        <v-list-item-content v-else>
+          <v-list-item-title v-show="!item.isProtected">
             {{ item.title }}
           </v-list-item-title>
         </v-list-item-content>
@@ -42,6 +48,8 @@
 </template>
 
 <script>
+  import { firebase } from '@/services'
+  import { mapActions, mapGetters } from 'vuex'
   export default {
     name: 'side-bar',
     props: {
@@ -55,9 +63,13 @@
         drawer: true,
         isXs: false,
         links: [
-          { title: 'Dashboard', icon: 'mdi-view-dashboard', to: '/v/dashboard' },
-          { title: 'Schedules', icon: 'mdi-calendar', to: '/v/schedules' },
-          { title: 'Lessons', icon: 'mdi-book-open', to: '/v/lessons' }
+          { title: 'Friends', icon: 'mdi-account-multiple-plus', to: '/friends' },
+          { title: 'Events', icon: 'mdi-calendar-check', to: '/events' },
+          { title: 'Dark Mode', icon: 'mdi-brightness-7' },
+          { title: 'About', icon: 'mdi-information', to: '/about' },
+          { title: 'Saved', icon: 'mdi-bookmark-check', to: '/saved', isProtected: true },
+          { title: 'Settings', icon: 'mdi-account-key', to: '/settings', isProtected: true },
+          { title: 'Logout', icon: 'mdi-logout', to: '/logout', isProtected: true }
         ]
       }
     },
@@ -71,27 +83,17 @@
             this.$emit('close')
           }
         }
+      },
+      ...mapGetters('user', { 
+        userProfile: 'userProfile',
+        loggedIn: 'loggedIn'
+      }),
+      getUserProfile () {
+        const { photoURL } = this.userProfile
+        return firebase.auth() 
+          ? photoURL 
+          : 'https://220images.mrowl.com/default-user-profile-photo.png'
       }
-    },
-    methods: {
-      onResize () {
-        this.isXs = window.innerWidth < 940;
-      }
-    },
-    watch: {
-      isXs (value) {
-        if (!value) {
-          if (this.drawer) {
-            this.drawer = false;
-          }
-        }
-      }
-    },
-    mounted() {
-      this.onResize()
-      window.addEventListener("resize", this.onResize, { 
-        passive: true 
-      })
     }
   }
 </script>
