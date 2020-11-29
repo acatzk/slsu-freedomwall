@@ -20,7 +20,7 @@
       </v-hover>
     </template>
     <v-card
-      min-height="200 auto"
+      min-height="200"
       width="256"
       class="mx-auto"
     >
@@ -43,20 +43,19 @@
 
       <v-divider></v-divider>
 
-      <v-list dense>
-        <v-list-item
-          v-for="item in items"
-          :key="item.title"
-          link
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
+      <v-list two-line dense>
+        <template v-for="(item, index) in items">
+          <v-list-item link :key="index">
+            <v-list-item-avatar>
+              <v-img :src="item.avatar"></v-img>
+            </v-list-item-avatar>
 
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+            <v-list-item-content>
+              <v-list-item-title v-html="item.title"></v-list-item-title>
+              <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </template>
       </v-list>
     </v-card>
   </v-menu>
@@ -68,11 +67,32 @@
     data () {
       return {
         items: [
-          { title: 'Dashboard', icon: 'mdi-view-dashboard' },
-          { title: 'Photos', icon: 'mdi-image' },
-          { title: 'About', icon: 'mdi-help-box' },
-        ],
-        right: null,
+          {
+            avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+            title: 'Brunch this weekend?',
+            subtitle: `<span class="text--primary">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
+          },
+          {
+            avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+            title: 'Summer BBQ <span class="grey--text text--lighten-1">4</span>',
+            subtitle: `<span class="text--primary">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`,
+          },
+          {
+            avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
+            title: 'Oui oui',
+            subtitle: '<span class="text--primary">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?',
+          },
+          {
+            avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
+            title: 'Birthday gift',
+            subtitle: '<span class="text--primary">Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?',
+          },
+          {
+            avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
+            title: 'Recipe to try',
+            subtitle: '<span class="text--primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
+          }
+        ]
       }
     },
   }
