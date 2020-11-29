@@ -1,6 +1,9 @@
 <template>
-  <div class="nav-bar">
-    <v-app-bar flat color="white" fixed>
+  <v-container class="nav-bar">
+    <v-app-bar flat 
+               color="white" 
+               app
+               clipped-left>
 
       <v-btn small
              fab
@@ -16,7 +19,7 @@
              class="gray--text">
           <v-icon>mdi-magnify</v-icon>
         </v-btn>
-      <v-toolbar-title class="gray--text mx-1 d-none d-sm-flex">
+      <v-toolbar-title class="secondary--text mx-1 d-none d-sm-flex">
         <v-list-item-content>
           <v-list-item-title>Freedom Wall</v-list-item-title>
         </v-list-item-content>
@@ -31,28 +34,31 @@
       <v-spacer></v-spacer>
 
       
-      <friends />
-      <notifications />
-      <profile-options />
-      <!-- <v-hover v-slot="{ hover }">
+      <friends v-if="loggedIn"/>
+      <notifications v-if="loggedIn"/>
+      <profile-options v-if="loggedIn"/>
+
+      <v-hover v-slot="{ hover }" v-if="!loggedIn">
         <v-btn depressed
               :outlined="!hover"
-              color="primary"
-              class="text-capitalize rounded-lg"
-              small>
+               color="primary"
+               class="text-capitalize rounded-lg"
+               small
+               @click="login">
           <v-icon small left>mdi-google</v-icon> Sign In
         </v-btn>
-      </v-hover> -->
+      </v-hover>
 
     </v-app-bar>
     
     <side-bar :visible="drawer"
               @close="drawer = false">
     </side-bar>
-  </div>
+  </v-container>
 </template>
 
 <script>
+  import { mapActions, mapGetters } from 'vuex'
   export default {
     name: 'nav-bar',
     components: {
@@ -65,6 +71,14 @@
       return {
         drawer: true
       }
+    },
+    computed: {
+      ...mapGetters('user', {
+        loggedIn: 'loggedIn'
+      })
+    },
+    methods: {
+      ...mapActions('user', { login: 'login' })
     }
   }
 </script>
