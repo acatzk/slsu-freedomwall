@@ -36,7 +36,7 @@
             </v-list-item-title>
           </v-hover>
         </v-list-item>
-        <v-list-item link>
+        <v-list-item link @click="logout">
           <v-hover v-slot="{ hover }">
             <v-list-item-title>
                 <v-icon left medium>
@@ -51,6 +51,7 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
   export default {
     name: 'profile-options',
     data () {
@@ -60,6 +61,11 @@
           { icon: 'mdi-account-key', text: 'Settings', to: '/settings' }
         ]
       }
+    },
+    methods: {
+      ...mapActions('user', {
+        logout: 'logout'
+      })
     }
   }
 </script>
