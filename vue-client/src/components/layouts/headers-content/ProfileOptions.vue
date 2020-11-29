@@ -8,7 +8,7 @@
              v-on="on"
              class="mx-2">
         <v-avatar size="30px" item>
-          <v-img src="@/assets/logo.png" aspect-ratio="1">
+          <v-img :src="getUserProfile" aspect-ratio="1">
             <template v-slot:placeholder>
               <v-row class="fill-height ma-0"
                      align="center"
@@ -51,7 +51,8 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { firebase } from '@/services'
+  import { mapActions, mapGetters } from 'vuex'
   export default {
     name: 'profile-options',
     data () {
@@ -66,6 +67,17 @@
       ...mapActions('user', {
         logout: 'logout'
       })
+    },
+    computed: {
+      ...mapGetters('user', {
+        userProfile: 'userProfile'
+      }),
+      getUserProfile () {
+        const { photoURL } = this.userProfile
+        return firebase.auth()
+               ? photoURL
+               : 'https://220images.mrowl.com/default-user-profile-photo.png'
+      }
     }
   }
 </script>
