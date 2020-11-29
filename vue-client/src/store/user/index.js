@@ -1,4 +1,5 @@
 import { firebase } from '@/services'
+import { toastAlert } from '@/utils'
 
 const state = {
   userProfile: {},
@@ -27,23 +28,25 @@ const mutations = {
 }
 
 const actions = {
- async login (store) {
-  if (store.state.loggedIn) return;
-  
-  const provider = new firebase.auth.GoogleAuthProvider()
-  try {
-    await firebase.auth().signInWithPopup(provider)
-  } catch (error) {
-    console.error(error)
+  async login (store) {
+    if (store.state.loggedIn) return;
+    
+    const provider = new firebase.auth.GoogleAuthProvider()
+    try {
+      await firebase.auth().signInWithPopup(provider)
+    } catch (error) {
+      toastAlert('error', error)
+      console.error(error)
+    }
+  },
+  async logout () {
+    try {
+      await firebase.auth().signOut()
+    } catch (error) {
+      toastAlert('error', error)
+      console.error(error)
+    }
   }
- },
- async logout (state) {
-  try {
-    await firebase.auth().signOut()
-  } catch (error) {
-    console.error(error)
-  }
- }
 }
 
 export default {
