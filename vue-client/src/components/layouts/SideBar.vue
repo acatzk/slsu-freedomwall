@@ -64,12 +64,12 @@
         drawer: true,
         isXs: false,
         links: [
-          { title: 'Friends', icon: 'mdi-account-multiple-plus', to: '/friends' },
-          { title: 'Events', icon: 'mdi-calendar-check', to: '/events' },
-          { title: 'Dark Mode', icon: 'mdi-brightness-7' },
-          { title: 'About', icon: 'mdi-information', to: '/about' },
-          { title: 'Saved', icon: 'mdi-bookmark-check', to: '/saved', isProtected: true },
-          { title: 'Settings', icon: 'mdi-account-key', to: '/settings', isProtected: true },
+          { title: 'Friends', icon: 'mdi-account-multiple-plus-outline', to: '/friends' },
+          { title: 'Events', icon: 'mdi-calendar-check-outline', to: '/events' },
+          { title: 'Dark Mode', icon: 'mdi-lightbulb-outline' },
+          { title: 'About', icon: 'mdi-information-outline', to: '/about' },
+          { title: 'Saved', icon: 'mdi-bookmark-check-outline', to: '/saved', isProtected: true },
+          { title: 'Settings', icon: 'mdi-account-key-outline', to: '/settings', isProtected: true },
           { title: 'Logout', icon: 'mdi-logout', to: '/logout', isProtected: true }
         ]
       }
