@@ -1,15 +1,16 @@
 <template>
   <div class="home">
+    <nav-bar />
     <v-container>
-      <nav-bar />
       <v-main>
-        
+        <router-view></router-view>
       </v-main>
     </v-container>
   </div>
 </template>
 
 <script>
+  import { mapActions, mapGetters } from 'vuex'
   export default {
     name: 'home',
     components: {
