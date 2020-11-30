@@ -1,5 +1,8 @@
 <template>
-  <v-menu offset-y transition="slide-x-transition">  
+  <v-menu offset-y 
+          transition="slide-x-transition" 
+          :close-on-content-click="false"
+          v-model="menu">  
     <template v-slot:activator="{ on, attrs }">  
       <v-hover v-slot="{ hover }">
         <v-btn depressed
@@ -45,7 +48,7 @@
 
       <v-list two-line dense>
         <template v-for="(item, index) in items">
-          <v-list-item link :key="index">
+          <v-list-item link :key="index" @click="menu = false">
             <v-list-item-avatar>
               <v-img :src="item.avatar"></v-img>
             </v-list-item-avatar>
@@ -66,6 +69,7 @@
   export default {
     data () {
       return {
+        menu: false,
         items: [
           {
             avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
