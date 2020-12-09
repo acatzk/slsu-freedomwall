@@ -1,5 +1,5 @@
 <template>
-  <v-container class="nav-bar">
+  <div class="nav-bar">
     <v-app-bar flat 
                color="white" 
                app
@@ -8,27 +8,49 @@
       <v-btn small
              fab
              text
-             class="gray--text"
+             class="secondary--text focus:outline-none"
              @click.stop="drawer = !drawer">
-        <v-icon class="iconify" data-icon="heroicons-outline:menu-alt-4"></v-icon>
+        <svg class="w-6 h-6" 
+             fill="none" 
+             stroke="currentColor" 
+             viewBox="0 0 24 24" 
+             xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" 
+                stroke-linejoin="round" 
+                stroke-width="2" 
+                d="M4 6h16M4 12h8m-8 6h16">
+          </path>
+        </svg>
       </v-btn>
       <v-btn small
              @click="$router.push('/search')"
              fab
              text
-             class="gray--text">
-          <v-icon>mdi-magnify</v-icon>
+             class="secondary--text focus:outline-none">
+          <svg class="w-6 h-6" 
+               fill="none" 
+               stroke="currentColor" 
+               viewBox="0 0 24 24" 
+               xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" 
+                  stroke-linejoin="round" 
+                  stroke-width="2" 
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z">
+            </path>
+          </svg>
         </v-btn>
-      <v-toolbar-title class="secondary--text mx-1 d-none d-sm-flex">
+      <v-toolbar-title class="text-gray-600 d-none d-sm-flex">
         <v-list-item-content>
-          <v-list-item-title>Freedom Wall</v-list-item-title>
+          <v-list-item-title class="text-lg px-2 font-light hover:text-gray-500" style="font-family: 'Pacifico'">
+            Freedom Wall
+          </v-list-item-title>
         </v-list-item-content>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <router-link to="/" class="router-link">
-        <v-img src="@/assets/logo.png" width="49"></v-img>
+      <router-link :to="{ name: 'home' }" class="router-link">
+        <v-img src="@/assets/img/logo.png" width="49"></v-img>
       </router-link>
 
       <v-spacer></v-spacer>
@@ -41,8 +63,8 @@
       <v-hover v-slot="{ hover }" v-if="!loggedIn">
         <v-btn depressed
               :outlined="!hover"
-               color="primary"
-               class="text-capitalize rounded-lg"
+               color="secondary"
+               class="text-capitalize rounded-lg font-semibold focus:outline-none"
                small
                @click="login">
           <v-icon small left>mdi-google</v-icon> Sign In
@@ -54,7 +76,7 @@
     <side-bar :visible="drawer"
               @close="drawer = false">
     </side-bar>
-  </v-container>
+  </div>
 </template>
 
 <script>
@@ -84,9 +106,6 @@
 </script>
 
 <style lang="scss" scoped>
-  .nav-bar {
-    width: 100%;
-  }
   .router-link {
     text-decoration: none;
   }
