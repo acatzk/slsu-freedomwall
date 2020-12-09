@@ -34,6 +34,7 @@ const actions = {
     const provider = new firebase.auth.GoogleAuthProvider()
     try {
       await firebase.auth().signInWithPopup(provider)
+      location.reload()
     } catch (error) {
       toastAlert('error', error)
       console.error(error)
@@ -42,6 +43,7 @@ const actions = {
   async logout () {
     try {
       await firebase.auth().signOut()
+      location.reload()
     } catch (error) {
       toastAlert('error', error)
       console.error(error)
