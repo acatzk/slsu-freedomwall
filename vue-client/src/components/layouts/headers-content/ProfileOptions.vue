@@ -1,12 +1,12 @@
 <template>
-  <v-menu offset-y transition="slide-x-transition">
+  <v-menu offset-y transition="slide-y-transition">
     <template v-slot:activator="{ on, attrs }">
       <v-btn small
              fab
              text
              v-bind="attrs"
              v-on="on"
-             class="mx-2">
+             class="mx-2 focus:outline-none">
         <v-avatar size="30px" item>
           <v-img :src="getUserProfile" aspect-ratio="1">
             <template v-slot:placeholder>
@@ -29,8 +29,8 @@
                     :key="io"
                     :to="opt.to">
           <v-hover v-slot="{ hover }">
-            <v-list-item-title>
-                <v-icon left medium>
+            <v-list-item-title class="secondary--text">
+                <v-icon left medium color="secondary">
                   {{ hover ? `${opt.icon}` : `${opt.icon}-outline` }}
                 </v-icon> {{ opt.text }}
             </v-list-item-title>
@@ -38,8 +38,8 @@
         </v-list-item>
         <v-list-item link @click="logout">
           <v-hover v-slot="{ hover }">
-            <v-list-item-title>
-                <v-icon left medium>
+            <v-list-item-title class="secondary--text">
+                <v-icon left medium color="secondary">
                   {{ hover ? 'mdi-lock' : 'mdi-lock-open-outline' }}  
                 </v-icon> Logout
             </v-list-item-title>
