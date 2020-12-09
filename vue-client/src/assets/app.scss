@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap');
 @import url("https://fonts.googleapis.com/css?family=Nunito:100,300,400,500,600,700,800,900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 .v-application {
   font-family: "Poppins", sans-serif !important;
@@ -19,11 +19,11 @@ body, html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #fff;
+  background: #f0f2f5;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: rgb(158, 158, 158);    /* color of the scroll thumb */
   border-radius: 8px;       /* roundness of the scroll thumb */
-  border: 3px solid #fff;  /* creates padding around scroll thumb */
+  border: 3px solid #f0f2f5;  /* creates padding around scroll thumb */
 }
