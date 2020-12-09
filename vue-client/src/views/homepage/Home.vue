@@ -3,7 +3,7 @@
     <nav-bar />
     <main-bar>
       <v-container fluid>
-         <router-view></router-view>
+        <router-view></router-view>
       </v-container>
     </main-bar>
   </div>
@@ -11,7 +11,7 @@
 
 <script>
   export default {
-    name: 'Home',
+    name: 'home',
     components: {
       NavBar: () => import('@/components/layouts/NavBar'),
       MainBar: () => import('@/components/layouts/MainBar')
