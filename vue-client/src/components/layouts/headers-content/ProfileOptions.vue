@@ -27,7 +27,8 @@
       <v-list dense>
         <v-list-item v-for="(opt, io) in profileOptions" 
                     :key="io"
-                    :to="opt.to">
+                    link 
+                    :to="opt.text === 'Profile' ? { name: 'profile', params: { id: userProfile.uid } } : opt.to">
           <v-hover v-slot="{ hover }">
             <v-list-item-title class="secondary--text">
                 <v-icon left medium color="secondary">
@@ -58,7 +59,7 @@
     data () {
       return {
         profileOptions: [
-          { icon: 'mdi-account', text: 'Profile', to: `/profile/1` },
+          { icon: 'mdi-account', text: 'Profile' },
           { icon: 'mdi-account-key', text: 'Settings', to: '/settings' }
         ]
       }
