@@ -1,7 +1,8 @@
 <template>
   <v-app class="h-screen w-full">
     <nav-bar v-if="loggedIn"/>
-    <router-view class="bg-gray-100"></router-view>
+      <router-view class="bg-gray-100" />
+    <foot-bar />
   </v-app>
 </template>
 
@@ -10,7 +11,8 @@
   export default {
     name: 'app',
     components: {
-      NavBar: () => import('@/components/layouts/NavBar')
+      NavBar: () => import('@/components/layouts/NavBar'),
+      FootBar: () => import('@/components/layouts/FootBar')
     },
     computed: {
       ...mapGetters('user', {
