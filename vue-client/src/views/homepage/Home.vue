@@ -112,7 +112,7 @@
                     
                     <router-link :to="{ name: 'profile', params: { id: userProfile.uid } }">
                       <v-list-item-avatar>
-                        <v-img :src="item.img"></v-img>
+                        <v-img :src="item.photoURL"></v-img>
                       </v-list-item-avatar>
                     </router-link>
                     
@@ -165,73 +165,73 @@
             id: 14,
             displayName: 'Maria Vina Gerodias Calibudbud Calibud',
             star: '45',
-            img:'https://pbs.twimg.com/profile_images/1178531311708884993/k1pwXwbf_400x400.jpg'
+            photoURL:'https://pbs.twimg.com/profile_images/1178531311708884993/k1pwXwbf_400x400.jpg'
           },
           {
             id: 1,
             displayName: 'Joshua Galit',
             star: '45',
-            img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0pAOsqHlOQoL9HHp8nYPU19br-wZpt4cEPg&usqp=CAU'
+            photoURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0pAOsqHlOQoL9HHp8nYPU19br-wZpt4cEPg&usqp=CAU'
           },
           {
             id: 2,
             displayName: 'Jerome Villaruel',
             star: '87',
-            img: 'https://avatars2.githubusercontent.com/u/26340308?s=460&u=12395feb4089a57a915f93d5d8cf6c0068b105fc&v=4'
+            photoURL: 'https://avatars2.githubusercontent.com/u/26340308?s=460&u=12395feb4089a57a915f93d5d8cf6c0068b105fc&v=4'
           },
           {
             id: 3,
             displayName: 'Gilchrist Calunia',
             star: '26',
-            img: 'https://avatars1.githubusercontent.com/u/65806779?s=460&u=03752090c3e22f46c1b7759b59daf1d871aada85&v=4'
+            photoURL: 'https://avatars1.githubusercontent.com/u/65806779?s=460&u=03752090c3e22f46c1b7759b59daf1d871aada85&v=4'
           },
           {
             id: 4,
             displayName: 'Resamae Cabulang',
             star: '54',
-            img: 'https://avatars2.githubusercontent.com/u/29187606?s=460&u=4503388a883486415e5d8a8a9eda1365cc7beeae&v=4'
+            photoURL: 'https://avatars2.githubusercontent.com/u/29187606?s=460&u=4503388a883486415e5d8a8a9eda1365cc7beeae&v=4'
           },
           {
             id: 6,
             displayName: 'Emman Rosal',
             star: '86',
-            img: 'https://i0.wp.com/peoplaid.com/wp-content/uploads/2019/12/Noel-Rosal.jpg?fit=535%2C451&ssl=1'
+            photoURL: 'https://i0.wp.com/peoplaid.com/wp-content/uploads/2019/12/Noel-Rosal.jpg?fit=535%2C451&ssl=1'
           },
           {
             id: 7,
             displayName: 'John Luar',
             star: '53',
-            img: 'https://cdn2.tstatic.net/tribunnews/foto/bank/images/blak-blakan-putri-john-kei-ungkap-perubahan-dasyat-papanya-setelah-keluar-dari-nusakambangan.jpg'
+            photoURL: 'https://cdn2.tstatic.net/tribunnews/foto/bank/images/blak-blakan-putri-john-kei-ungkap-perubahan-dasyat-papanya-setelah-keluar-dari-nusakambangan.jpg'
           },
           {
             id: 8,
             displayName: 'Michale Nicolas',
             star: '43',
-            img: 'https://everydaynutrition.co.uk/wp-content/uploads/2015/01/default-user-avatar-300x300.png'
+            photoURL: 'https://everydaynutrition.co.uk/wp-content/uploads/2015/01/default-user-avatar-300x300.png'
           },
           {
             id: 9,
             displayName: 'Joseff Beronio',
             star: '76',
-            img: 'https://everydaynutrition.co.uk/wp-content/uploads/2015/01/default-user-avatar-300x300.png'
+            photoURL: 'https://everydaynutrition.co.uk/wp-content/uploads/2015/01/default-user-avatar-300x300.png'
           },
           {
             id: 10,
             displayName: 'Christian Bongalan',
             star: '53',
-            img: 'https://everydaynutrition.co.uk/wp-content/uploads/2015/01/default-user-avatar-300x300.png'
+            photoURL: 'https://everydaynutrition.co.uk/wp-content/uploads/2015/01/default-user-avatar-300x300.png'
           },
           {
             id: 12,
             displayName: 'Celda mae dagohoy',
             star: '12',
-            img: 'https://everydaynutrition.co.uk/wp-content/uploads/2015/01/default-user-avatar-300x300.png'
+            photoURL: 'https://everydaynutrition.co.uk/wp-content/uploads/2015/01/default-user-avatar-300x300.png'
           },
           {
             id: 13,
             displayName: 'Goki Shibukawa',
             star: '32',
-            img: 'https://everydaynutrition.co.uk/wp-content/uploads/2015/01/default-user-avatar-300x300.png'
+            photoURL: 'https://everydaynutrition.co.uk/wp-content/uploads/2015/01/default-user-avatar-300x300.png'
           },
         ],
         links: [
