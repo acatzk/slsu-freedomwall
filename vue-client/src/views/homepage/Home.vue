@@ -41,10 +41,10 @@
           </v-card>
         </div>
         <div class="flex-1 mx-5">
-          
+          <post-card /> <!-- POST PHOTO, JOB, ARTICLE AND VIDEO -->
           <div v-for="n in 25" :key="n">
             <v-card
-              class="mx-auto mb-5 rounded-lg"
+              class="mx-auto mb-4 rounded-lg"
               color="#26c6da"
               dark
               flat
@@ -101,7 +101,7 @@
         <div class="w-80 flex-none hidden md:block">
           <v-card style="position: fixed;" class="rounded-lg overflow-y-hidden fixed w-80" flat outlined>
             <v-card-text class="border-b border-gray-200">
-              <span class="text-lg text-gray-700">Star the people you may know</span>
+              <span class="text-md text-gray-500">Star the people you may know</span>
             </v-card-text>
             <v-list two-line class="overflow-y-auto h-96">
               <template v-for="(item, index) in users">
@@ -138,7 +138,7 @@
                 <v-divider :key="index"></v-divider>
               </template>
               <div class="flex items-center justify-center py-3">
-                <router-link class="focus:outline-none hover:underline text-lightblue text-gray-600" :to="{ name: 'friends' }">
+                <router-link :to="{ name: 'friends' }" class="focus:outline-none hover:underline text-lightblue text-gray-600 hover:text-blue-800">
                   See More
                 </router-link>
               </div>
@@ -157,6 +157,7 @@
     name: 'home',
     components: {
       MainBar: () => import('@/components/layouts/MainBar'),
+      PostCard: () => import('@/components/pages/home/PostCard'),
       MainContainer: () => import('@/components/layouts/MainContainer')
     },
     data () {
