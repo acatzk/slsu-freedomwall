@@ -13,25 +13,37 @@ const routes = [
   {
     path: '/',
     name: 'welcome',
-    components: () => import('@/views/Welcome')
+    component: () => import('@/views/Welcome')
   },
   {
-    path: '/en',
+    path: '/home',
     name: 'home',
-    component: () => import('@/views/Home'),
-    meta: { requiresAuth: true },
-    children: [
-      {
-        path: 'profile/:id',
-        name: 'profile',
-        components: () => import('@/views/Profile')
-      },
-      {
-        path: 'friends',
-        name: 'friends',
-        components: () => import('@/views/Friends')
-      }
-    ]
+    component: () => import('@/views/homepage/Home'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/profile/:id',
+    name: 'profile',
+    component: () => import('@/views/homepage/Profile'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/:displayName/:id',
+    name: 'user-profile',
+    component: () => import('@/views/homepage/Profile'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/friends',
+    name: 'friends',
+    component: () => import('@/views/homepage/Friends'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/saved',
+    name: 'saved',
+    component: () => import('@/views/homepage/Saved'),
+    meta: { requiresAuth: true }
   },
   {
     path: '/login',
@@ -52,7 +64,7 @@ router.beforeEach((to, from, next) => {
   const currentUser = firebase.auth().currentUser
 
   if (requiresAuth && !currentUser) {
-    next({ name: 'login' })
+    next({ name: 'welcome' })
   } else if (!requiresAuth && currentUser) {
     next({ name: 'home' })
   } else {
