@@ -12,10 +12,6 @@ const routes = [
   },
   {
     path: '/',
-    redirect: 'login'
-  },
-  {
-    path: '/',
     name: 'welcome',
     component: () => import('@/views/Welcome')
   },
