@@ -2,7 +2,7 @@
   <main-bar class="flex flex-col">
     <v-container fluid>
       <div class="relative overflow-y-hidden w-full h-full flex">
-        <div class="flex-none w-56 flex flex-col d-none d-md-flex">
+        <div class="flex-none w-56 flex-col hidden md:block">
           <v-card flat outlined class="fixed w-56">
             <v-list dense nav>
               <v-list-item link :to="{ 
@@ -96,7 +96,7 @@
             </v-card>
           </div>
         </div>
-        <div class="w-80 flex-none sticky d-none d-md-flex">
+        <div class="w-80 flex-none hidden md:block">
           <v-card style="height: 60vh;" class="overflow-y-auto fixed w-80" flat outlined>
              <v-card-text>
               Star the people you may know
