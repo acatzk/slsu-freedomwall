@@ -52,6 +52,18 @@ const actions = {
       console.error(error)
     }
   },
+  async loginWithGithub (store) {
+    if (store.state.loggedIn) return;
+    
+    const provider = new firebase.auth.GithubAuthProvider()
+    try {
+      await firebase.auth().signInWithPopup(provider)
+      location.reload()
+    } catch (error) {
+      toastAlert('error', error)
+      console.error(error)
+    }
+  },
   async logout () {
     try {
       await firebase.auth().signOut()
