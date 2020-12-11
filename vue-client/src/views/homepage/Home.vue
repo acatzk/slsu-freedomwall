@@ -3,7 +3,7 @@
     <main-container class="max-w-screen-lg">
       <div class="relative overflow-y-hidden w-full h-full flex">
         <div class="flex-none w-56 flex-col hidden md:block">
-          <v-card flat outlined class="fixed w-56">
+          <v-card flat outlined class="fixed w-56 rounded-lg" style="position: fixed;">
             <v-list dense nav>
               <v-list-item link :to="{ 
                 name: 'user-profile', 
@@ -41,11 +41,13 @@
           </v-card>
         </div>
         <div class="flex-1 mx-5">
+          
           <div v-for="n in 25" :key="n">
-             <v-card
-              class="mx-auto mb-5"
+            <v-card
+              class="mx-auto mb-5 rounded-lg"
               color="#26c6da"
               dark
+              flat
               max-width="700"
               min-width="400"
             >
@@ -97,32 +99,35 @@
           </div>
         </div>
         <div class="w-80 flex-none hidden md:block">
-          <v-card style="height: 60vh;" class="overflow-y-auto fixed app w-80" flat outlined>
-             <v-card-text>
-              Star the people you may know
-             </v-card-text>
-             <v-list two-line>
+          <v-card style="position: fixed;" class="rounded-lg overflow-y-hidden fixed w-80" flat outlined>
+            <v-card-text class="border-b border-gray-200">
+              <span class="text-lg text-gray-700">Star the people you may know</span>
+            </v-card-text>
+            <v-list two-line class="overflow-y-auto h-96">
               <template v-for="(item, index) in users">
-                <v-divider
-                  :key="index"
-                ></v-divider>
-
                 <v-list-item
                   :key="`${item.id}-user`"
                   class="flex items-center"
+                  link
                 >
                   <div class="flex">
-                    <v-list-item-avatar>
-                      <v-img :src="item.img"></v-img>
-                    </v-list-item-avatar>
+                    
+                    <router-link :to="{ name: 'profile', params: { id: userProfile.uid } }">
+                      <v-list-item-avatar>
+                        <v-img :src="item.img"></v-img>
+                      </v-list-item-avatar>
+                    </router-link>
+                    
                     <v-list-item-content>
                       <v-list-item-title class="text-capitalize">
                         <router-link :to="{ name: 'profile', params: { id: userProfile.uid } }">
-                          {{ `${item.firstname} ${item.lastname}` }}
+                          <span class="darkblueshade--text hover:underline">
+                            {{ item.displayName.length > 15 ? item.displayName.slice(0, 15) + '...' : item.displayName }}
+                          </span>
                         </router-link>
                       </v-list-item-title>
                       <v-list-item-subtitle class="flex items-center">
-                        <span class="font-semibold">{{ item.star }} star</span>
+                        <span class="font-semibold mr-1">{{ item.star }}</span> star
                       </v-list-item-subtitle>
                     </v-list-item-content>
                   </div>
@@ -130,17 +135,13 @@
                     <v-icon>mdi-star-outline</v-icon>
                   </v-btn>
                 </v-list-item>
+                <v-divider :key="index"></v-divider>
               </template>
-
-              <v-list-item class="flex justify-center">
-                <v-btn rounded 
-                       class="focus:outline-none" 
-                       text 
-                       block
-                       :to="{ name: 'friends' }">
+              <div class="flex items-center justify-center py-3">
+                <router-link class="focus:outline-none hover:underline text-lightblue text-gray-600" :to="{ name: 'friends' }">
                   See More
-                </v-btn>
-              </v-list-item>
+                </router-link>
+              </div>
             </v-list>
           </v-card>
         </div>
@@ -162,93 +163,86 @@
       return {
         users: [
           {
+            id: 14,
+            displayName: 'Maria Vina Gerodias Calibudbud Calibud',
+            star: '45',
+            img: require('@/assets/img/logo.png')
+          },
+          {
             id: 1,
-            firstname: 'Joshua',
-            lastname: 'Galit',
+            displayName: 'Joshua Galit',
             star: '45',
             img: require('@/assets/img/logo.png')
           },
           {
             id: 2,
-            firstname: 'Jerome',
-            lastname: 'Villaruel',
+            displayName: 'Jerome Villaruel',
             star: '87',
             img: require('@/assets/img/logo.png')
           },
           {
             id: 3,
-            firstname: 'Gilchrist',
-            lastname: 'Calunia',
+            displayName: 'Gilchrist Calunia',
             star: '26',
             img: require('@/assets/img/logo.png')
           },
           {
             id: 4,
-            firstname: 'Resamae',
-            lastname: 'Cabulang',
+            displayName: 'Resamae Cabulang',
             star: '54',
             img: require('@/assets/img/logo.png')
           },
           {
             id: 5,
-            firstname: 'Joshua',
-            lastname: 'Galit',
+            displayName: 'Joshua Galit',
             star: '44',
             img: require('@/assets/img/logo.png')
           },
           {
             id: 6,
-            firstname: 'Emman',
-            lastname: 'Rosal',
+            displayName: 'Emman Rosal',
             star: '86',
             img: require('@/assets/img/logo.png')
           },
           {
             id: 7,
-            firstname: 'John',
-            lastname: 'Luar',
+            displayName: 'John Luar',
             star: '53',
             img: require('@/assets/img/logo.png')
           },
           {
             id: 8,
-            firstname: 'Michale',
-            lastname: 'Nioolas',
+            displayName: 'Michale Nicolas',
             star: '43',
             img: require('@/assets/img/logo.png')
           },
           {
             id: 9,
-            firstname: 'Joseff',
-            lastname: 'Beronio',
+            displayName: 'Joseff Beronio',
             star: '76',
             img: require('@/assets/img/logo.png')
           },
           {
             id: 10,
-            firstname: 'Christian',
-            lastname: 'Bongalan',
+            displayName: 'Christian Bongalan',
             star: '53',
             img: require('@/assets/img/logo.png')
           },
           {
             id: 11,
-            firstname: 'Maria',
-            lastname: 'Vina',
+            displayName: 'Maria Vina',
             star: '32',
             img: require('@/assets/img/logo.png')
           },
           {
             id: 12,
-            firstname: 'Celda mae',
-            lastname: 'Dagohoy',
+            displayName: 'Celda mae dagohoy',
             star: '12',
             img: require('@/assets/img/logo.png')
           },
           {
             id: 13,
-            firstname: 'Goki',
-            lastname: 'Shibukawa',
+            displayName: 'Goki Shibukawa',
             star: '32',
             img: require('@/assets/img/logo.png')
           },
