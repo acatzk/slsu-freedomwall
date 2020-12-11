@@ -10,7 +10,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['responsive', 'focus', 'active', 'hover']
+    },
   },
   plugins: [],
 }
