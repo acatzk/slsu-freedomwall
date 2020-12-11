@@ -1,6 +1,6 @@
 <template>
-  <main-bar class="flex flex-col">
-    <v-container fluid>
+  <main-bar>
+    <v-container class="max-w-screen-lg">
       <div class="relative overflow-y-hidden w-full h-full flex">
         <div class="flex-none w-56 flex-col hidden md:block">
           <v-card flat outlined class="fixed w-56">
@@ -40,7 +40,7 @@
             </v-list>
           </v-card>
         </div>
-        <div class="flex-1 mx-5 min-w-90">
+        <div class="flex-1 mx-5">
           <div v-for="n in 25" :key="n">
              <v-card
               class="mx-auto mb-5"
