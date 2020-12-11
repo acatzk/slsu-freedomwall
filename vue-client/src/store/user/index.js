@@ -28,10 +28,22 @@ const mutations = {
 }
 
 const actions = {
-  async login (store) {
+  async loginWithGoogle (store) {
     if (store.state.loggedIn) return;
     
     const provider = new firebase.auth.GoogleAuthProvider()
+    try {
+      await firebase.auth().signInWithPopup(provider)
+      location.reload()
+    } catch (error) {
+      toastAlert('error', error)
+      console.error(error)
+    }
+  },
+  async loginWithFacebook (store) {
+    if (store.state.loggedIn) return;
+    
+    const provider = new firebase.auth.FacebookAuthProvider()
     try {
       await firebase.auth().signInWithPopup(provider)
       location.reload()
