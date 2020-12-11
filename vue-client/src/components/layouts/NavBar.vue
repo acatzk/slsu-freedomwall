@@ -2,8 +2,7 @@
   <div class="nav-bar">
     <v-app-bar flat 
                color="white" 
-               app
-               clipped-left>
+               app>
 
       <v-btn small
              fab
@@ -23,7 +22,7 @@
         </svg>
       </v-btn>
       <v-btn small
-             @click="$router.push('/search')"
+             to="/en/search"
              fab
              text
              class="secondary--text focus:outline-none">
@@ -41,9 +40,11 @@
         </v-btn>
       <v-toolbar-title class="text-gray-600 d-none d-sm-flex">
         <v-list-item-content>
-          <v-list-item-title class="text-lg px-2 font-light hover:text-gray-500" style="font-family: 'Pacifico'">
-            Freedom Wall
-          </v-list-item-title>
+          <router-link :to="{ name: 'home' }">
+            <v-list-item-title class="text-lg px-2 font-light hover:text-gray-500" style="font-family: 'Pacifico'">
+              Freedom Wall
+            </v-list-item-title>
+          </router-link>
         </v-list-item-content>
       </v-toolbar-title>
 
@@ -73,9 +74,11 @@
 
     </v-app-bar>
     
-    <side-bar :visible="drawer"
+    <v-container>
+      <side-bar :visible="drawer"
               @close="drawer = false">
     </side-bar>
+    </v-container>
   </div>
 </template>
 
@@ -91,7 +94,7 @@
     },
     data () {
       return {
-        drawer: true
+        drawer: false
       }
     },
     computed: {
