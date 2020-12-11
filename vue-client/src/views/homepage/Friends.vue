@@ -1,6 +1,6 @@
 <template>
-  <v-main>
-    <v-container>
+  <main-bar>
+    <main-container>
       <v-list two-line>
         <template v-for="(item, index) in items">
           <v-subheader
@@ -30,12 +30,16 @@
           </v-list-item>
         </template>
       </v-list>
-    </v-container>
-  </v-main>
+    </main-container>
+  </main-bar>
 </template>
 
 <script>
   export default {
+    components: {
+      MainBar: () => import('@/components/layouts/MainBar'),
+      MainContainer: () => import('@/components/layouts/MainContainer')
+    },
     data: () => ({
       items: [
         { header: 'Find Alumni Friend' },

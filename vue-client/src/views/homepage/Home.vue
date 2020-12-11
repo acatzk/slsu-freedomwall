@@ -1,6 +1,6 @@
 <template>
   <main-bar>
-    <v-container class="max-w-screen-lg">
+    <main-container class="max-w-screen-lg">
       <div class="relative overflow-y-hidden w-full h-full flex">
         <div class="flex-none w-56 flex-col hidden md:block">
           <v-card flat outlined class="fixed w-56">
@@ -97,7 +97,7 @@
           </div>
         </div>
         <div class="w-80 flex-none hidden md:block">
-          <v-card style="height: 60vh;" class="overflow-y-auto fixed w-80" flat outlined>
+          <v-card style="height: 60vh;" class="overflow-y-auto fixed app w-80" flat outlined>
              <v-card-text>
               Star the people you may know
              </v-card-text>
@@ -145,7 +145,7 @@
           </v-card>
         </div>
       </div>
-    </v-container>
+    </main-container>
   </main-bar>
 </template>
 
@@ -155,7 +155,8 @@
   export default {
     name: 'home',
     components: {
-      MainBar: () => import('@/components/layouts/MainBar')
+      MainBar: () => import('@/components/layouts/MainBar'),
+      MainContainer: () => import('@/components/layouts/MainContainer')
     },
     data () {
       return {
