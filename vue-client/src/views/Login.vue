@@ -9,7 +9,7 @@
         </v-card-text>
         <v-card-actions class="flex flex-col items-center justify-center">
           <v-btn block 
-                 class="capitalize text-white focus:outline-none my-3 shadow-xl" 
+                 class="capitalize text-white focus:outline-none my-3 shadow-xl text-capitalize" 
                  color="#3b5998"
                  @click="loginWithFacebook">
             <svg fill="currentColor" 
@@ -28,7 +28,7 @@
             <span class="text-white">Facebook</span>
           </v-btn>
           <v-btn block 
-                 class="capitalize text-white shadow-xl focus:outline-none mr-2" 
+                 class="capitalize text-white shadow-xl focus:outline-none mr-2 text-capitalize" 
                  color="#dd4b39"
                  @click="loginWithGoogle">
             <svg fill="currentColor" 
@@ -44,7 +44,7 @@
             <span class="text-white">Google</span>
           </v-btn>
           <v-btn block 
-                 class="capitalize my-3 text-white shadow-xl focus:outline-none mr-2" 
+                 class="capitalize my-3 text-white shadow-xl focus:outline-none mr-2 text-capitalize" 
                  color="#333"
                  @click="loginWithGithub">
             <svg fill="currentColor" 
