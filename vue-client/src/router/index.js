@@ -12,6 +12,10 @@ const routes = [
   },
   {
     path: '/',
+    redirect: 'login'
+  },
+  {
+    path: '/',
     name: 'welcome',
     component: () => import('@/views/Welcome')
   },
@@ -64,7 +68,7 @@ router.beforeEach((to, from, next) => {
   const currentUser = firebase.auth().currentUser
 
   if (requiresAuth && !currentUser) {
-    next({ name: 'welcome' })
+    next({ name: 'login' })
   } else if (!requiresAuth && currentUser) {
     next({ name: 'home' })
   } else {
