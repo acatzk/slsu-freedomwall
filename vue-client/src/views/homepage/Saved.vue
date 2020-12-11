@@ -1,5 +1,11 @@
 <template>
-  <div class="flex items-center justify-center w-full h-screen bg-blue-200">
-    <h1>Your Saved Post here</h1>
+  <div class="section h-full">
+    <v-main>
+      <v-container>
+        <v-card>
+          <h1>Saved</h1>
+        </v-card>
+      </v-container>
+    </v-main>
   </div>
 </template>
