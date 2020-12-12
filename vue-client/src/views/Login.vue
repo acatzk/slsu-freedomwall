@@ -1,11 +1,9 @@
 <template>
   <div class="w-full h-full bg-lightblue flex justify-center flex-col">
     <div class="flex items-center justify-center flex-col">
-      <div class="mx-5">
-        <img class="w-24 h-24" src="@/assets/img/logo.png" alt="slsu-logo">
-        <h2 class="font-semibold mt-4 text-gray-700 text-2xl">Welcome to SLSU Freedom Wall</h2>
-      </div>
-      <v-card flat class="w-96 my-6 pb-3 px-3 rounded-full shadow-xl">
+      <img class="w-24 h-24" src="@/assets/img/logo.png" alt="slsu-logo">
+      <h2 class="font-semibold mt-4 text-gray-700 lg:text-2xl md:text-1xl">Welcome to SLSU Freedom Wall</h2>
+      <v-card flat class="w-96 my-6 pb-3 px-3 md:rounded-full sm:rounded-none shadow-xl">
         <v-card-text>
           Log in with one of the following:
         </v-card-text>
