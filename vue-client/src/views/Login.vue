@@ -1,16 +1,19 @@
 <template>
-  <div class="w-full h-screen bg-lightblue flex justify-center flex-col">
+  <div class="w-full h-full bg-lightblue flex justify-center flex-col">
     <div class="flex items-center justify-center flex-col">
-      <img class="w-24 h-24 mt-4" src="@/assets/img/logo.png" alt="slsu-logo">
-      <h2 class="font-semibold mt-4 text-gray-700 text-2xl">Welcome to SLSU Freedom Wall</h2>
-      <v-card flat class="w-96 my-6 py-5 px-3 rounded-full shadow-lg">
+      <div class="mx-5">
+        <img class="w-24 h-24" src="@/assets/img/logo.png" alt="slsu-logo">
+        <h2 class="font-semibold mt-4 text-gray-700 text-2xl">Welcome to SLSU Freedom Wall</h2>
+      </div>
+      <v-card flat class="w-96 my-6 pb-3 px-3 rounded-full shadow-xl">
         <v-card-text>
           Log in with one of the following:
         </v-card-text>
         <v-card-actions class="flex flex-col items-center justify-center">
           <v-btn block 
-                 class="capitalize text-white focus:outline-none my-3 shadow-xl text-capitalize" 
+                 class="capitalize text-white focus:outline-none my-3 text-capitalize shadow-lg" 
                  color="#3b5998"
+                 depressed
                  @click="loginWithFacebook">
             <svg fill="currentColor" 
                   class="w-5 h-5 mr-6 text-white"
@@ -28,9 +31,10 @@
             <span class="text-white">Facebook</span>
           </v-btn>
           <v-btn block 
-                 class="capitalize text-white shadow-xl focus:outline-none mr-2 text-capitalize" 
+                 class="capitalize text-white focus:outline-none mr-2 text-capitalize shadow-lg mb-3" 
                  color="#dd4b39"
-                 @click="loginWithGoogle">
+                 @click="loginWithGoogle"
+                 depressed>
             <svg fill="currentColor" 
                  class="w-5 h-5 mr-6 text-white"
                  xmlns:xlink="http://www.w3.org/1999/xlink" 
@@ -44,9 +48,27 @@
             <span class="text-white">Google</span>
           </v-btn>
           <v-btn block 
-                 class="capitalize my-3 text-white shadow-xl focus:outline-none mr-2 text-capitalize" 
-                 color="#333"
-                 @click="loginWithGithub">
+                 class="capitalize text-white focus:outline-none mr-2 text-capitalize shadow-lg" 
+                 color="#4A00A0"
+                 @click="loginWithYahoo"
+                 depressed>
+            <svg fill="currentColor" 
+                 class="w-5 h-5 mr-6 text-white rounded-full"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" 
+                 xmlns="http://www.w3.org/2000/svg" 
+                 viewBox="0 0 24 24" 
+                 preserveAspectRatio="xMidYMid meet">
+                <path xmlns="http://www.w3.org/2000/svg" 
+                      d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z">
+                </path>
+            </svg>
+            <span class="text-white">Yahoo</span>
+          </v-btn>
+          <v-btn block 
+                  class="capitalize my-3 text-white focus:outline-none mr-2 text-capitalize shadow-lg" 
+                  color="#333"
+                  depressed
+                  @click="loginWithGithub">
             <svg fill="currentColor" 
                   class="w-5 h-5 mr-6 text-white"
                   xmlns="http://www.w3.org/2000/svg" 
@@ -74,7 +96,8 @@
       ...mapActions('user', { 
         loginWithGoogle: 'loginWithGoogle',
         loginWithFacebook: 'loginWithFacebook',
-        loginWithGithub: 'loginWithGithub'
+        loginWithGithub: 'loginWithGithub',
+        loginWithYahoo: 'loginWithYahoo'
       })
     }
   }

@@ -64,6 +64,18 @@ const actions = {
       console.error(error)
     }
   },
+  async loginWithYahoo (store) {
+    if (store.state.loggedIn) return;
+    
+    const provider = new firebase.auth.OAuthProvider('yahoo.com')
+    try {
+      await firebase.auth().signInWithPopup(provider)
+      location.reload()
+    } catch (error) {
+      toastAlert('error', error)
+      console.error(error)
+    }
+  },
   async logout () {
     try {
       await firebase.auth().signOut()
