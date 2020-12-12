@@ -1,7 +1,7 @@
 <template>
   <main-bar>
-    <main-container class="max-w-screen-lg">
-      <div class="relative overflow-y-hidden w-full h-full flex">
+    <main-container>
+      <div class="relative overflow-y-hidden overflow-x-hidden w-full h-full flex">
         <div class="flex-none w-56 flex-col hidden md:block">
           <v-card flat outlined class="fixed w-56 rounded-lg" style="position: fixed;">
             <v-list dense nav>
@@ -40,11 +40,11 @@
             </v-list>
           </v-card>
         </div>
-        <div class="flex-1 mx-5">
+        <div class="mx-5 overflow-x-scroll">
           <post-card /> <!-- POST PHOTO, JOB, ARTICLE AND VIDEO -->
-          <div v-for="n in 25" :key="n">
+          <div v-for="n in 2" :key="n">
             <v-card
-              class="mx-auto mb-4 rounded-lg"
+              class="mx-auto mb-4 rounded-lg shadow-xl"
               color="#26c6da"
               dark
               flat
