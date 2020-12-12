@@ -11,7 +11,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      backgroundColor: ['responsive', 'focus', 'active', 'hover']
+      backgroundColor: ['responsive', 'focus', 'active', 'hover'],
+      boxShadow: ['active']
     },
   },
   plugins: [],
