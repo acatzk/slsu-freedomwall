@@ -40,7 +40,7 @@
             </v-list>
           </v-card>
         </div>
-        <div class="mx-5 overflow-x-scroll">
+        <div class="md:mx-5 overflow-x-scroll">
           <post-card /> <!-- POST PHOTO, JOB, ARTICLE AND VIDEO -->
           <div v-for="n in 2" :key="n">
             <v-card
