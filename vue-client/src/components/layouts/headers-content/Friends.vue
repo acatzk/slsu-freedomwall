@@ -8,7 +8,7 @@
               small
               v-bind="attrs"
               v-on="on"
-              class="secondary--text focus:outline-none"
+              class="secondary--text focus:outline-none d-none d-sm-flex"
               :to="{ name: 'friends' }">
           <svg v-if="!hover"
                class="w-6 h-6" 
