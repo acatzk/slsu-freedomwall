@@ -45,7 +45,7 @@
           <div v-for="n in 2" :key="n">
             <v-card
               class="mx-auto mb-4 rounded-lg shadow-xl"
-              color="#26c6da"
+              color="purple"
               dark
               flat
             >
