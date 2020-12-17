@@ -5,7 +5,6 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import { firebase } from '@/services'
 import './auth'
-import './assets/styles/index.css'
 
 Vue.config.productionTip = false
 
