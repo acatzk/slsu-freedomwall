@@ -1,7 +1,12 @@
 <template>
   <v-card class="rounded-lg mb-4" flat outlined>
     <v-card-actions class="m-2 flex flex-col">
-      <v-btn outlined text block large rounded class="flex justify-start focus:outline-none bg-gray-100">
+      <v-btn outlined 
+             text 
+             block 
+             large 
+             rounded class="flex justify-start focus:outline-none bg-gray-100"
+             @click="dialog = true">
         <svg xmlns="http://www.w3.org/2000/svg" 
               viewBox="0 0 24 24" 
               data-supported-dps="24x24" 
@@ -72,9 +77,25 @@
                 focusable="false">
             <path d="M21 3v2H3V3zm-6 6h6V7h-6zm0 4h6v-2h-6zm0 4h6v-2h-6zM3 21h18v-2H3zM13 7H3v10h10z"></path>
           </svg>
-          <span class="text-xs text-gray-500 hidden md:block">Write Article</span>
         </v-btn>
       </div>
     </v-card-actions>
+    <post-dialog :visible="dialog"
+                 @close="dialog = false">
+    </post-dialog> <!-- POST TEXT DIALOG -->
   </v-card>
 </template>
+
+<script>
+  export default {
+    name: 'post-card',
+    data () {
+      return {
+        dialog: false
+      }
+    },
+    components: {
+      PostDialog: () => import('./PostDialog')
+    }
+  }
+</script>
