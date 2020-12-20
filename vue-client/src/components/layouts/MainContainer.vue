@@ -1,5 +1,5 @@
 <template>
-  <v-container class="max-w-screen-lg">
+  <div class="container max-w-screen-xl mx-auto">
     <slot></slot>
-  </v-container>
+  </div>
 </template>
