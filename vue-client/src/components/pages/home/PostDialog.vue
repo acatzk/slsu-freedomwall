@@ -1,6 +1,6 @@
 <template>
   <v-dialog v-model="show" scrollable max-width="600px">
-    <v-card  class="rounded-xl">
+    <v-card>
       <v-card-title>Create a post</v-card-title>
       <v-divider></v-divider>
       <v-card-text style="height: 250px;">
@@ -23,7 +23,7 @@
           placeholder="What do you want to talk about?"
         ></v-textarea>
       </v-card-text>
-      <v-card-actions class="mx-5">
+      <v-card-actions class="mx-3">
         <v-btn text class="focus:outline-none" fab small>
           <svg fill="currentColor" 
                class="w-6 h-6 text-gray-400"
