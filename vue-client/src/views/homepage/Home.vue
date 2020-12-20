@@ -2,146 +2,20 @@
   <main-bar>
     <main-container>
       <div class="relative overflow-y-hidden overflow-x-hidden w-full h-full flex">
-        <div class="flex-none w-56 flex-col hidden md:block">
-          <v-card flat outlined class="fixed w-56 rounded-lg" style="position: fixed;">
-            <v-list dense nav>
-              <v-list-item link :to="{ 
-                name: 'user-profile', 
-                params: { 
-                  displayName: userProfile.displayName, 
-                  id: userProfile.uid 
-                } 
-              }">
-                <v-list-item-avatar>
-                  <v-img :src="userProfilePhoto" />
-                </v-list-item-avatar>
-                <v-list-item-content>
-                  <v-list-item-title class="text-capitalize secondary--text">
-                    {{ userProfile.displayName  }}
-                  </v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-
-              <template v-for="item in links">
-                <v-list-item link
-                            :key="item.title"
-                            :to="item.to"
-                             class="secondary--text">
-                  <v-list-item-icon >
-                    <span v-html="item.icon"></span>
-                  </v-list-item-icon>
-                  <v-list-item-content>
-                    <v-list-item-title class="secondary--text">
-                      {{ item.title }}
-                    </v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </template>
-            </v-list>
-          </v-card>
+        <div class="flex-none w-60 flex-col hidden md:block">
+          <link-card :links="links"
+                     :userProfile="userProfile">
+          </link-card>
         </div>
-        <div class="md:mx-5 overflow-x-scroll">
+        <div class="md:mx-5 space-y-4 overflow-x-scroll w-full">
+          <!-- <stories /> -->
           <post-card /> <!-- POST PHOTO, JOB, ARTICLE AND VIDEO -->
-          <div v-for="n in 2" :key="n">
-            <v-card
-              class="mx-auto mb-4 rounded-lg shadow-xl"
-              color="purple"
-              dark
-              flat
-            >
-              <v-card-title>
-                <v-icon
-                  large
-                  left
-                >
-                  mdi-twitter
-                </v-icon>
-                <span class="title font-weight-light">Twitter</span>
-              </v-card-title>
-
-              <v-card-text class="headline font-weight-bold">
-                "Turns out semicolon-less style is easier and safer in TS because most gotcha edge cases are type invalid as well."
-              </v-card-text>
-
-              <v-card-actions>
-                <v-list-item class="grow">
-                  <v-list-item-avatar color="grey darken-3">
-                    <v-img
-                      class="elevation-6"
-                      alt=""
-                      src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
-                    ></v-img>
-                  </v-list-item-avatar>
-
-                  <v-list-item-content>
-                    <v-list-item-title>Evan You</v-list-item-title>
-                  </v-list-item-content>
-
-                  <v-row
-                    align="center"
-                    justify="end"
-                  >
-                    <v-icon class="mr-1">
-                      mdi-heart
-                    </v-icon>
-                    <span class="subheading mr-2">256</span>
-                    <span class="mr-1">·</span>
-                    <v-icon class="mr-1">
-                      mdi-share-variant
-                    </v-icon>
-                    <span class="subheading">45</span>
-                  </v-row>
-                </v-list-item>
-              </v-card-actions>
-            </v-card>
-          </div>
+          
         </div>
         <div class="w-80 flex-none hidden md:block">
-          <v-card style="position: fixed;" class="rounded-lg overflow-y-hidden fixed w-80" flat outlined>
-            <v-card-text class="border-b border-gray-200">
-              <span class="text-md text-gray-500">Star the people you may know</span>
-            </v-card-text>
-            <v-list two-line class="overflow-y-auto h-96">
-              <template v-for="(item, index) in users">
-                <v-list-item
-                  :key="`${item.id}-user`"
-                  class="flex items-center"
-                  link
-                >
-                  <div class="flex">
-                    
-                    <router-link :to="{ name: 'profile', params: { id: userProfile.uid } }">
-                      <v-list-item-avatar>
-                        <v-img :src="item.photoURL"></v-img>
-                      </v-list-item-avatar>
-                    </router-link>
-                    
-                    <v-list-item-content>
-                      <v-list-item-title class="text-capitalize">
-                        <router-link :to="{ name: 'profile', params: { id: userProfile.uid } }">
-                          <span class="darkblueshade--text hover:underline">
-                            {{ item.displayName.length > 15 ? item.displayName.slice(0, 15) + '...' : item.displayName }}
-                          </span>
-                        </router-link>
-                      </v-list-item-title>
-                      <v-list-item-subtitle class="flex items-center">
-                        <span class="font-semibold mr-1">{{ item.star }}</span> star
-                      </v-list-item-subtitle>
-                    </v-list-item-content>
-                  </div>
-                  <v-btn small text outlined fab class="focus:outline-none">
-                    <v-icon>mdi-star-outline</v-icon>
-                  </v-btn>
-                </v-list-item>
-                <v-divider :key="index"></v-divider>
-              </template>
-              <div class="flex items-center justify-center py-3">
-                <router-link :to="{ name: 'friends' }" class="focus:outline-none hover:underline text-lightblue text-gray-600 hover:text-blue-800">
-                  See More
-                </router-link>
-              </div>
-            </v-list>
-          </v-card>
+          <user-star-card :users="users"
+                          :userProfile="userProfile">
+          </user-star-card>
         </div>
       </div>
     </main-container>
@@ -156,7 +30,10 @@
     components: {
       MainBar: () => import('@/components/layouts/MainBar'),
       PostCard: () => import('@/components/pages/home/PostCard'),
-      MainContainer: () => import('@/components/layouts/MainContainer')
+      MainContainer: () => import('@/components/layouts/MainContainer'),
+      Stories: () => import('@/components/sections/home/Stories'),
+      UserStarCard: () => import('@/components/pages/home/UserStarCard'),
+      LinkCard: () => import('@/components/pages/home/LinkCard')
     },
     data () {
       return {
@@ -289,13 +166,7 @@
       ...mapGetters('user', { 
         userProfile: 'userProfile',
         loggedIn: 'loggedIn'
-      }),
-      userProfilePhoto () {
-        const { photoURL } = this.userProfile
-        return firebase.auth() 
-          ? photoURL 
-          : 'https://220images.mrowl.com/default-user-profile-photo.png'
-      }
+      })
     }
   }
 </script>
