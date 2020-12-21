@@ -3,11 +3,13 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
+import VueParticles from 'vue-particles'
 import { firebase, apolloProvider } from '@/services'
 import './auth'
 import './assets/styles/index.css'
 
 Vue.config.productionTip = false
+Vue.use(VueParticles)
 
 let app = ''
 
@@ -19,6 +21,6 @@ firebase.auth().onAuthStateChanged(() => {
       vuetify,
       apolloProvider,
       render: h => h(App)
-    }).$mount('#app')    
+    }).$mount('#app')
   }
 })
