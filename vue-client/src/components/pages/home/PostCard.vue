@@ -1,5 +1,5 @@
 <template>
-  <v-card class="rounded-lg mb-4" flat outlined>
+  <v-card class="rounded-lg" flat outlined>
     <v-card-actions class="m-2 flex flex-col">
       <v-btn outlined 
              text 
