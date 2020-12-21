@@ -74,11 +74,9 @@
 
     </v-app-bar>
     
-    <v-container>
-      <side-bar :visible="drawer"
+    <side-bar :visible="drawer"
               @close="drawer = false">
     </side-bar>
-    </v-container>
   </div>
 </template>
 
