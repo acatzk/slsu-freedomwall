@@ -7,7 +7,11 @@ module.exports = {
     fontFamily: 'Poppins',
     extend: {
       colors: {
-        fuchsia: colors.fuchsia
+        fuchsia: colors.fuchsia,
+        'fb-color': '#3b5998',
+        'google-color': '#dd4b39',
+        'yahoo-color': '#4A00A0',
+        'github-color': '#333'
       }
     },
   },
