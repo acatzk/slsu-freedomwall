@@ -1,5 +1,12 @@
 <template>
-  <div class="text-gray-400 text bg-gray-100 text-xs px-5 py-1 flex items-end justify-end">
-    Crafted with ❤ by Joshua Galit
-  </div>
+  <footer>
+    <div class="flex items-center justify-space-between mx-5 bg-gray-100">
+      <div>
+        <span class="text-xs font-light text-gray-400">Alright Reserved &copy; <span class="font-semibold">2020</span></span>
+      </div>
+      <div>
+        <span class="text-xs font-light text-gray-400">Developed by <span class="font-semibold">Joshua Galit</span></span>
+      </div>
+    </div>
+  </footer>
 </template>
