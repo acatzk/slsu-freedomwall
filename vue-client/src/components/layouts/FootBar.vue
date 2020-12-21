@@ -1,6 +1,6 @@
 <template>
-  <footer>
-    <div class="flex items-center justify-space-between mx-5 bg-gray-100">
+  <footer class=" bg-gray-100">
+    <div class="sm:flex justify-space-between mx-5">
       <div>
         <span class="text-xs font-light text-gray-400">Alright Reserved &copy; <span class="font-semibold">2020</span></span>
       </div>
