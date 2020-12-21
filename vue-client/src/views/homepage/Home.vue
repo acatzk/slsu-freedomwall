@@ -7,10 +7,12 @@
                      :userProfile="userProfile">
           </link-card>
         </div>
-        <div class="md:mx-5 space-y-4 overflow-x-scroll w-full">
+        <div class="md:mx-5 space-y-3 w-full">
           <!-- <stories /> -->
           <post-card /> <!-- POST PHOTO, JOB, ARTICLE AND VIDEO -->
-          
+          <div v-for="i in 10" :key="i">
+            <feeds-card />
+          </div>
         </div>
         <div class="w-80 flex-none hidden md:block">
           <user-star-card :users="users"
@@ -33,6 +35,7 @@
       MainContainer: () => import('@/components/layouts/MainContainer'),
       Stories: () => import('@/components/sections/home/Stories'),
       UserStarCard: () => import('@/components/pages/home/UserStarCard'),
+      FeedsCard: () => import('@/components/pages/home/FeedsCard.vue'),
       LinkCard: () => import('@/components/pages/home/LinkCard')
     },
     data () {
