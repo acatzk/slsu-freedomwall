@@ -1,5 +1,5 @@
 <template>
-  <v-app class="h-screen w-full">
+  <v-app>
     <nav-bar v-if="loggedIn"/>
       <router-view class="bg-gray-100" />
     <foot-bar />
