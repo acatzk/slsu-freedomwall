@@ -33,7 +33,7 @@
           <div class="flex items-center">
             <span class="text-xs font-extralight">✦ 25</span>
             <v-btn text outlined x-small class="ml-2 focus:outline-none">
-              <v-icon small>mdi-star-outline</v-icon>
+              <v-icon x-small>mdi-star-outline</v-icon>
               <span class="ml-1 text-capitalize">Star</span>
             </v-btn>
           </div>
