@@ -3,8 +3,8 @@
     <v-card>
       <v-card-title>Create a post</v-card-title>
       <v-divider></v-divider>
-      <v-card-text style="height: 250px;">
-        <v-list-item class="px-2">
+      <v-card-text style="height: 250px;" class="-mx-5">
+        <v-list-item>
           <v-list-item-avatar>
             <v-img :src="userPhoto"></v-img>
           </v-list-item-avatar>
@@ -20,10 +20,11 @@
           v-model="regularPost"
           row-height="15"
           autofocus
-          placeholder="What do you want to talk about?"
+          class="mx-3"
+          placeholder="What's on your mind?"
         ></v-textarea>
       </v-card-text>
-      <v-card-actions class="mx-3">
+      <v-card-actions class="mx-1">
         <v-btn text class="focus:outline-none" fab small>
           <svg fill="currentColor" 
                class="w-6 h-6 text-gray-400"

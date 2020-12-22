@@ -19,7 +19,6 @@ firebase.auth().onAuthStateChanged(() => {
       router,
       store,
       vuetify,
-      apolloProvider,
       render: h => h(App)
     }).$mount('#app')
   }
