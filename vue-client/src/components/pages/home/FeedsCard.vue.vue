@@ -1,15 +1,15 @@
 <template>
-  <v-card class="mx-auto h-64" flat outlined >
-    <div class="flex items-center justify-between mx-2 py-1">
+  <v-card class="mx-auto" flat outlined >
+    <header class="flex items-center justify-between mx-2 py-2">
       <div class="p-2 flex items-center">
-        <div>
+        <div class="flex-shrink-0">
           <a href="#">
             <img class="w-10 h-10 object-cover rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0pAOsqHlOQoL9HHp8nYPU19br-wZpt4cEPg&usqp=CAU" alt="">
           </a>
         </div>
         <div class="ml-2 flex flex-col leading-none">
           <div class="flex items-center mt-1">
-            <a class="font-medium text-xs hover:underline text-gray-900 tracking-wide" href="#">Joshua Galit</a>
+            <a class="font-medium text-xs hover:underline text-gray-900 tracking-wide hover:text-blue-900" href="#">Joshua Galit</a>
             <span class="ml-1">&bull;</span>
             <span class="ml-1 text-xs font-extralight text-gray-400">3 days ago</span>
             <span class="ml-1">
@@ -39,7 +39,7 @@
           </div>
         </div>
       </div>
-      <div>
+      <div class="-mt-3 mr-2">
         <v-menu offset-y transition="slide-y-transition" bottom left>
           <template v-slot:activator="{ on, attrs }">
             <button class="block" v-bind="attrs" v-on="on">
@@ -61,33 +61,60 @@
             </button>
           </template>
           <v-list dense>
-            <v-list-item-group>
+            <v-list-item-group v-for="(item, i) in menus" :key="i">
               <v-list-item>
-                <v-list-item-icon>
-                  <svg  class="w-5 h-5" 
-                        stroke="currentColor" 
-                        fill="none" 
-                        xmlns:xlink="http://www.w3.org/1999/xlink" 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        viewBox="0 0 24 24" 
-                        preserveAspectRatio="xMidYMid meet" 
-                        data-attributes-set=",xmlns:xlink,xmlns,viewBox,preserveAspectRatio">
-                    <path xmlns="http://www.w3.org/2000/svg" 
-                          stroke-linecap="round" 
-                          stroke-linejoin="round" 
-                          stroke-width="2" 
-                          d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z">
-                    </path>
-                  </svg>
-                </v-list-item-icon>
-                <v-list-item-content>
-                  <span class="text-xs font-semibold">Save</span>
+                <span v-html="item.icon"></span>
+                <v-list-item-content class="ml-3">
+                  <span class="text-xs font-semibold">{{ item.text }}</span>
                 </v-list-item-content>
               </v-list-item>
             </v-list-item-group>
           </v-list>
         </v-menu>
       </div>
-    </div>
+    </header>
+    <main>
+      <div class="mx-5">
+        <span class="text-sm">Writing is thinking. And *writing* about your growing competence is *thinking* about your growing competence.</span>
+      </div>
+      <div class="w-full">
+        <img src="https://media-exp1.licdn.com/dms/image/sync/C4D27AQHKoWl1VcITmw/articleshare-shrink_800/0/1608221315637?e=1608696000&v=beta&t=YzU-kPlL5Ia4JtPyRVHnBmNYdvuY_KpfvhPzlPSVby0" alt="">
+      </div>
+    </main>
+    <footer>
+      
+    </footer>
   </v-card>
 </template>
+
+<script>
+  export default {
+    name: 'feeds-card',
+    data () {
+      return {
+        menus: [
+          {
+            icon: '<svg  class="w-5 h-5" stroke="currentColor" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" data-attributes-set=",xmlns:xlink,xmlns,viewBox,preserveAspectRatio"> <path xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>',
+            text: 'Save'
+          },
+          {
+            icon: '<svg class="w-5 h-5" stroke="currentColor" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" data-attributes-set=",xmlns:xlink,xmlns,viewBox,preserveAspectRatio"><path xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>',
+            text: 'Share'
+          },
+          {
+            icon: '<svg class="w-5 h-5" stroke="currentColor" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" data-attributes-set=",xmlns:xlink,xmlns,viewBox,preserveAspectRatio"><path xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>',
+            text: 'View post'
+          },
+          {
+            icon: '<svg class="w-5 h-5" stroke="currentColor" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" data-attributes-set=",xmlns:xlink,xmlns,viewBox,preserveAspectRatio"><path xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>',
+            text: 'Copy link to post'
+          },
+          {
+            icon: '<svg class="w-5 h-5" stroke="currentColor" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" data-attributes-set=",xmlns:xlink,xmlns,viewBox,preserveAspectRatio"><path xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7A9.97 9.97 0 014.02 8.971m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88L6.59 6.59m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path></svg>',
+            text: 'I dont want to see this'
+          }
+        ]
+      }
+    }
+  }
+</script>
