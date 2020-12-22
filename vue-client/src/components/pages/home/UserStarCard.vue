@@ -1,9 +1,9 @@
 <template>
-  <v-card style="position: fixed;" class="rounded-lg overflow-y-hidden fixed w-80" flat outlined>
+  <v-card style="position: fixed;" class="rounded-lg overflow-y-hidden fixed w-72" flat outlined>
     <v-card-text class="border-b border-gray-200">
       <span class="text-md text-gray-500">Star the people you may know</span>
     </v-card-text>
-    <v-list two-line class="overflow-y-auto h-96">
+    <v-list class="overflow-y-auto h-96" dense>
       <template v-for="(item, index) in users">
         <v-list-item :key="`${item.id}-user`" class="flex items-center" link>
           <div class="flex">
