@@ -18,6 +18,14 @@
       ...mapGetters('user', {
         loggedIn: 'loggedIn'
       })
+    },
+    watch: {
+      '$route':{
+        handler: (to, from) => {
+          document.title = to.meta.title || 'Freedom wall'
+        },
+        immediate: true
+      }
     }
   }
 </script>
