@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" flat outlined >
+  <div class="mx-auto bg-white shadow-sm rounded-lg">
     <header class="flex items-center justify-between mx-2 py-2">
       <div class="p-2 flex items-center">
         <div class="flex-shrink-0">
@@ -7,10 +7,10 @@
             <img class="w-10 h-10 object-cover rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0pAOsqHlOQoL9HHp8nYPU19br-wZpt4cEPg&usqp=CAU" alt="">
           </a>
         </div>
-        <div class="ml-2 flex flex-col leading-none">
-          <div class="flex items-center mt-1">
+        <div class="ml-2 flex flex-col leading-normal ">
+          <div class="flex items-center">
             <a class="font-medium text-xs hover:underline text-gray-900 tracking-wide hover:text-blue-900" href="#">Joshua Galit</a>
-            <span class="ml-1">&bull;</span>
+            <span class="ml-1 text-gray-500">&bull;</span>
             <span class="ml-1 text-xs font-extralight text-gray-400">3 days ago</span>
             <span class="ml-1">
               <svg class="w-4 h-4"
@@ -82,9 +82,28 @@
       </div>
     </main>
     <footer>
-      
+      <div class="flex items-center justify-between p-1">
+        <button class="flex items-center justify-center block w-full p-2 bg-gray-100 rounded-lg">
+          <div>
+            <svg class="w-5 h-5" stroke="currentColor" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" data-attributes-set=",xmlns:xlink,xmlns,viewBox,preserveAspectRatio"><path xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905a3.61 3.61 0 01-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path></svg>
+          </div>
+          <span class="ml-3 font-medium text-sm hidden sm:block">Like</span>
+        </button>
+        <button class="flex items-center justify-center block w-full p-2 bg-gray-100 mx-1 rounded-lg">
+          <div>
+            <svg class="w-5 h-5" stroke="currentColor" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" data-attributes-set=",xmlns:xlink,xmlns,viewBox,preserveAspectRatio"><path xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+          </div>
+          <span class="ml-3 font-medium text-sm hidden sm:block">Comment</span>
+        </button>
+        <button class="flex items-center justify-center block w-full p-2 bg-gray-100 rounded-lg">
+          <div>
+            <svg class="w-5 h-5" stroke="currentColor" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" data-attributes-set=",xmlns:xlink,xmlns,viewBox,preserveAspectRatio"><path xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+          </div>
+          <span class="ml-3 font-medium text-sm hidden sm:block">Comment</span>
+        </button>
+      </div>
     </footer>
-  </v-card>
+  </div>
 </template>
 
 <script>
