@@ -1,11 +1,10 @@
 <template>
-  <v-card class="rounded-lg" flat outlined>
+  <div class="rounded-lg bg-white shadow-sm -mt-2">
     <v-card-actions class="m-2 flex flex-col">
-      <v-btn outlined 
-             text 
+      <v-btn text 
              block 
              large 
-             rounded class="flex justify-start focus:outline-none bg-gray-100"
+             rounded class="flex justify-start focus:outline-none bg-gray-100 mt-2 border-2 border-gray-900"
              @click="dialog = true">
         <svg xmlns="http://www.w3.org/2000/svg" 
               viewBox="0 0 24 24" 
@@ -18,7 +17,7 @@
         <span class="text-xs capitalize text-gray-500">Start a post</span>
       </v-btn>
       <div class="flex items-center justify-between mt-2">
-        <v-btn text class="flex items-center justify-center focus:outline-none capitalize text-capitalize">
+        <v-btn text class="flex focus:outline-none capitalize text-capitalize">
           <svg fill="currentColor" 
                 class="w-6 h-6 mr-2"
                 xmlns:xlink="http://www.w3.org/1999/xlink" 
@@ -36,7 +35,7 @@
           </svg>
           <span class="text-xs text-gray-500 hidden md:block">Photo</span>
         </v-btn>
-        <v-btn text class="flex items-center focus:outline-none capitalize text-capitalize">
+        <v-btn text class="flex focus:outline-none capitalize text-capitalize">
           <svg class="w-6 h-6 mr-2"
                 fill="currentColor" 
                 xmlns:xlink="http://www.w3.org/1999/xlink" 
@@ -57,7 +56,7 @@
           </svg>
           <span class="text-xs text-gray-500 hidden md:block">Video</span>
         </v-btn>
-        <v-btn text class="flex items-center focus:outline-none capitalize text-capitalize">
+        <v-btn text class="flex focus:outline-none capitalize text-capitalize">
           <svg xmlns="http://www.w3.org/2000/svg" 
                 viewBox="0 0 24 24" 
                 data-supported-dps="24x24" 
@@ -67,8 +66,8 @@
             <path d="M17 6V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2v4a3 3 0 003 3h14a3 3 0 003-3V6zM9 5a1 1 0 011-1h4a1 1 0 011 1v1H9zm10 9a4 4 0 003-1.38V17a3 3 0 01-3 3H5a3 3 0 01-3-3v-4.38A4 4 0 005 14z"></path>
           </svg>
           <span class="text-xs text-gray-500 hidden md:block">Job</span>
-        </v-btn>
-        <v-btn text class="flex items-center focus:outline-none capitalize text-capitalize">
+        </v-btn>  
+        <v-btn text class="flex focus:outline-none capitalize text-capitalize">
           <svg xmlns="http://www.w3.org/2000/svg" 
                 viewBox="0 0 24 24" 
                 data-supported-dps="24x24" 
@@ -84,7 +83,7 @@
     <post-dialog :visible="dialog"
                  @close="dialog = false">
     </post-dialog> <!-- POST TEXT DIALOG -->
-  </v-card>
+  </div>
 </template>
 
 <script>
