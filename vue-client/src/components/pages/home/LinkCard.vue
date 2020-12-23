@@ -1,5 +1,5 @@
 <template>
-  <v-card flat outlined class="fixed w-60 rounded-lg" style="position: fixed;">
+  <div class="rounded-lg bg-white p-1 fixed w-60 shadow-sm hover:shadow-lg transition" style="position: fixed;">
     <v-list dense nav>
       <v-list-item link :to="{ name: 'profile', params: { id: userProfile.uid  } }">
         <v-list-item-avatar>
@@ -28,7 +28,7 @@
         </v-list-item>
       </template>
     </v-list>
-  </v-card>
+  </div>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <v-card style="position: fixed;" class="rounded-lg overflow-y-hidden fixed w-72" flat outlined>
+  <div style="position: fixed;" class="rounded-lg overflow-y-hidden fixed w-72 bg-white shadow-sm hover:shadow-lg transition">
     <v-card-text class="border-b border-gray-200">
       <span class="text-md text-gray-500">Star the people you may know</span>
     </v-card-text>
@@ -23,7 +23,7 @@
                 </router-link>
               </v-list-item-title>
               <v-list-item-subtitle class="flex items-center">
-                <span class="font-semibold mr-1">{{ item.star }}</span> star
+                <span class="font-semibold mr-1">{{ item.star }}</span>✦
               </v-list-item-subtitle>
             </v-list-item-content>
           </div>
@@ -31,7 +31,7 @@
             <v-icon>mdi-star-outline</v-icon>
           </v-btn>
         </v-list-item>
-        <v-divider :key="index"></v-divider>
+        <hr :key="index" class="bg-gray-100"/>
       </template>
       <div class="flex items-center justify-center py-3">
         <router-link :to="{ name: 'friends' }" class="focus:outline-none hover:underline text-lightblue text-gray-600 hover:text-blue-800">
@@ -39,7 +39,7 @@
         </router-link>
       </div>
     </v-list>
-  </v-card>
+  </div>
 </template>
 
 <script>
