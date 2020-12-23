@@ -23,36 +23,31 @@ const routes = [
     path: '/home',
     name: 'home',
     component: () => import('@/views/homepage/Home'),
-    meta: { requiresAuth: true }
+    meta: { title: 'Freedom Wall | Home', requiresAuth: true }
   },
   {
     path: '/profile/:id',
     name: 'profile',
     component: () => import('@/views/homepage/Profile'),
-    meta: { requiresAuth: true }
-  },
-  {
-    path: '/:displayName/:id',
-    name: 'user-profile',
-    component: () => import('@/views/homepage/Profile'),
-    meta: { requiresAuth: true }
+    meta: { title: 'Freedom Wall | Profile', requiresAuth: true }
   },
   {
     path: '/friends',
     name: 'friends',
     component: () => import('@/views/homepage/Friends'),
-    meta: { requiresAuth: true }
+    meta: { title: 'Freedom Wall | Friends', requiresAuth: true }
   },
   {
     path: '/saved',
     name: 'saved',
     component: () => import('@/views/homepage/Saved'),
-    meta: { requiresAuth: true }
+    meta: { title: 'Freedom Wall | Saved', requiresAuth: true }
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/views/Login')
+    component: () => import('@/views/Login'),
+    meta: { title: 'Freedom Wall | Login' }
   }
 ]
 
