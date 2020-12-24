@@ -1,7 +1,7 @@
 <template>
   <main-bar>
     <main-container>
-      <div class="relative overflow-y-hidden overflow-x-hidden w-full h-full flex mt-2">
+      <div class="relative overflow-y-hidden overflow-x-hidden w-full h-full flex">
         <div class="flex-none w-60 flex-col hidden md:block">
           <link-card :links="links"
                      :userProfile="userProfile">
