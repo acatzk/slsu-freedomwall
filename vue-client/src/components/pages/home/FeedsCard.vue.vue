@@ -4,14 +4,16 @@
       <div class="p-2 flex items-center">
         <div class="flex-shrink-0">
           <a href="#">
-            <img class="w-10 h-10 object-cover rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0pAOsqHlOQoL9HHp8nYPU19br-wZpt4cEPg&usqp=CAU" alt="">
+            <img class="w-10 h-10 object-cover rounded-full" :src="post.photoURL" alt="">
           </a>
         </div>
         <div class="ml-2 flex flex-col leading-normal ">
           <div class="flex items-center">
-            <a class="font-medium text-xs hover:underline text-gray-900 tracking-wide hover:text-blue-900" href="#">Joshua Galit</a>
+            <a class="font-medium text-xs hover:underline text-gray-900 tracking-wide hover:text-blue-900" href="#">{{ post.displayName }}</a>
             <span class="ml-1 text-gray-500">&bull;</span>
-            <span class="ml-1 text-xs font-extralight text-gray-400">3 days ago</span>
+            <div v-for="(p, i) in post.photoPost" :key="i">
+              <span class="ml-1 text-xs font-extralight text-gray-400">{{ p.created_at }}</span>
+            </div>
             <span class="ml-1">
               <svg class="w-4 h-4"
                   stroke="currentColor" 
@@ -74,11 +76,13 @@
       </div>
     </header>
     <main>
-      <div class="mx-5">
-        <span class="text-sm">Writing is thinking. And *writing* about your growing competence is *thinking* about your growing competence.</span>
-      </div>
-      <div class="w-full">
-        <img src="https://media-exp1.licdn.com/dms/image/sync/C4D27AQHKoWl1VcITmw/articleshare-shrink_800/0/1608221315637?e=1608696000&v=beta&t=YzU-kPlL5Ia4JtPyRVHnBmNYdvuY_KpfvhPzlPSVby0" alt="">
+      <div v-for="(pt, i) in post.photoPost" :key="i">
+        <div class="mx-5">
+          <span class="text-sm">{{ pt.caption }}</span>
+        </div>
+        <div class="mt-1">
+          <img class="w-full object-cover" :src="pt.photoLink" alt="">
+        </div>
       </div>
     </main>
     <footer>
@@ -109,6 +113,12 @@
 <script>
   export default {
     name: 'feeds-card',
+    props: {
+      post: {
+        type: Object,
+        required: true
+      }
+    },
     data () {
       return {
         menus: [
