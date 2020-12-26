@@ -25,6 +25,7 @@
     "vue": "^2.6.11",
     "vue-apollo": "^3.0.5",
     "vue-horizontal-list": "^1.2.1",
+    "vue-intercom": "^1.0.14",
     "vue-particles": "^1.0.9",
     "vue-router": "^3.2.0",
     "vuetify": "^2.2.11",
@@ -39,8 +40,10 @@
     "@vue/eslint-config-standard": "^5.1.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
+    "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
@@ -58,6 +61,7 @@
     },
     "extends": [
       "plugin:vue/essential",
+      "plugin:prettier/recommended",
       "@vue/standard"
     ],
     "parserOptions": {
