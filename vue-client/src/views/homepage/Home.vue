@@ -10,8 +10,8 @@
         <div class="md:mx-5 space-y-3 w-full">
           <!-- <stories /> -->
           <post-card /> <!-- POST PHOTO, JOB, ARTICLE AND VIDEO -->
-          <div v-for="i in 10" :key="i">
-            <feeds-card />
+          <div v-for="(post, i) in posts" :key="i">
+            <feeds-card :post="post" />
           </div>
         </div>
         <div class="w-80 flex-none hidden md:block">
@@ -161,6 +161,44 @@
             title: 'Logout',
             icon: '<svg class="lightblue--text" fill="currentColor" width="28" height="28" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" preserveAspectRatio="xMidYMid meet"><path xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path></svg>',
             to: '/logout'
+          }
+        ],
+        posts: [
+          {
+            displayName: 'Joshua Galit',
+            email: 'joshuaimlaay@gmail.com',
+            photoURL: 'https://pbs.twimg.com/profile_images/1178531311708884993/k1pwXwbf_400x400.jpg',
+            photoPost: [
+              {
+                caption: 'Joshua post gallery',
+                photoLink: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa3N719f-pXQvU4STIGBRi0cEGvuXJg53tqA&usqp=CAU',
+                created_at: '1 day ago'
+              }
+            ]
+          },
+          {
+            displayName: 'Vina Calibudbud',
+            email: 'vinacalibud@gmail.com',
+            photoURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0pAOsqHlOQoL9HHp8nYPU19br-wZpt4cEPg&usqp=CAU',
+            photoPost: [
+              {
+                caption: 'Vinas post gallery',
+                photoLink: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzoVrt7O-NdiyE_fbQUaEM5CQSewxy7pTrvQ&usqp=CAU',
+                created_at: 'a moment ago'
+              }
+            ]
+          },
+          {
+            displayName: 'Luar Jonny',
+            email: 'luars@gmail.com',
+            photoURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEWCml5r7RgBLc7FQJG69MosG9E7sa-AZGwg&usqp=CAU',
+            photoPost: [
+              {
+                caption: 'luar post gallery',
+                photoLink: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnA4eDAsVypB7hLh7hCFALP38AnCLuGRrOpg&usqp=CAU',
+                created_at: '2 days ago'
+              }
+            ]
           }
         ]
       }
