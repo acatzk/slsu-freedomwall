@@ -79,7 +79,16 @@
     <side-bar :visible="drawer"
               @close="drawer = false">
     </side-bar>
-  </div>
+  </div> 
+  <!-- <div class="sticky top-0">
+    <div class="container max-w-screen-xl mx-auto">
+      <div class="flex items-center justify-between py-2 px3">
+        <div>menu</div>
+        <div>logo</div>
+        <div>options</div>
+      </div>
+    </div>
+  </div -->
 </template>
 
 <script>

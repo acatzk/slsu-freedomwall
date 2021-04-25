@@ -15,7 +15,6 @@
     "apollo-link-ws": "^1.0.20",
     "autoprefixer": "^9.8.6",
     "core-js": "^3.6.5",
-    "firebase": "^8.1.1",
     "graphql": "^15.4.0",
     "graphql-tag": "^2.11.0",
     "postcss": "^7.0.35",
